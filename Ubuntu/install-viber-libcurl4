@@ -1,0 +1,10 @@
+#!/bin/sh
+
+wget -O /tmp/viber.deb http://download.cdn.viber.com/cdn/desktop/Linux/viber.deb
+sudo apt-mark hold libcurl4
+sudo dpkg -i --ignore-depends=libcurl3 /tmp/viber.deb
+sudo apt install -f
+sudo dpkg -i --ignore-depends=libcurl3 /tmp/viber.deb
+sudo apt-mark unhold libcurl4
+rm /tmp/viber.deb
+
